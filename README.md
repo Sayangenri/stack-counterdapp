@@ -70,6 +70,22 @@ hiro-structure/
 - **`get-count`** — Read-only function returning the current counter value on-chain
 - **`increment`** — Transactional function that increments the counter by 1
 
+
+## 🛠️ Deployment
+
+### Deploy to Mainnet (Clarinet)
+
+```bash
+clarinet deployments apply --mainnet
+```
+
+**Deployment Configuration:**
+- Uses `Clarinet.toml` for project settings
+- Uses `deployments/default.mainnet-plan.yaml` for deployment plan
+- Clarity version: **4**
+
+---
+
 #### Frontend
 - Connect your Wallet
 - View live counter value directly from the blockchain
@@ -146,21 +162,6 @@ Click "Refresh" → Reads get-count from blockchain → Display updates instantl
 Click "Increment" → Sign transaction in Hiro Wallet → 
 Submit to Stacks → Await confirmation → Counter updates on-chain
 ```
-
----
-
-## 🛠️ Deployment
-
-### Deploy to Mainnet (Clarinet)
-
-```bash
-clarinet deployments apply --mainnet
-```
-
-**Deployment Configuration:**
-- Uses `Clarinet.toml` for project settings
-- Uses `deployments/default.mainnet-plan.yaml` for deployment plan
-- Clarity version: **4**
 
 ---
 
