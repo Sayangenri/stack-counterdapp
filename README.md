@@ -2,8 +2,7 @@
 
 A full-stack **Stacks blockchain DApp** that demonstrates a **Clarity 4 smart contract deployed on Mainnet** with a **React + Vite frontend** for on-chain interaction using **Hiro Wallet**.
 
-This project shows an end-to-end flow:
-**Clarity contract → Mainnet deployment → Wallet connection → Frontend interaction**.
+This project shows an end-to-end flow: **Clarity contract → Mainnet deployment → Wallet connection → Frontend interaction**.
 
 ---
 
@@ -22,7 +21,7 @@ This project shows an end-to-end flow:
 
 ## 🏗️ Project Structure
 
-```text
+```
 hiro-structure/
 │
 ├── contracts/
@@ -55,22 +54,23 @@ hiro-structure/
 ├── Clarinet.toml
 ├── README.md
 └── .gitignore
+```
 
-```text
+---
 
-# Counter Contract 
+## Counter Contract
 
 - Contract name: counter-contract-v1
 - Network: Stacks Mainnet
 - Language: Clarity 4
 
-## 🚀 What It Does
+### 🚀 What It Does
 
-### Smart Contract (`counter-contract-v1`)
+#### Smart Contract (`counter-contract-v1`)
 - **`get-count`** — Read-only function returning the current counter value on-chain
 - **`increment`** — Transactional function that increments the counter by 1
 
-### Frontend
+#### Frontend
 - Connect your Wallet
 - View live counter value directly from the blockchain
 - Submit increment transactions
@@ -97,8 +97,9 @@ hiro-structure/
 **Live on Stacks Mainnet:**
 ```
 SP1JC5M9MYCNTJG3TV0HTBEYRQDCR9119RH7SB0BA.counter-contract-v1
-
 ```
+
+---
 
 ## ⚡ Quick Start
 
@@ -122,8 +123,8 @@ Open **`http://localhost:5173`** in your browser.
 Create `frontend/.env`:
 ```env
 VITE_NETWORK=mainnet
-VITE_CONTRACT_ADDRESS=
-VITE_CONTRACT_NAME=
+VITE_CONTRACT_ADDRESS=SP1JC5M9MYCNTJG3TV0HTBEYRQDCR9119RH7SB0BA
+VITE_CONTRACT_NAME=counter-contract-v1
 ```
 
 ---
@@ -161,6 +162,7 @@ clarinet deployments apply --mainnet
 - Uses `deployments/default.mainnet-plan.yaml` for deployment plan
 - Clarity version: **4**
 
+---
 
 ## 🙏 Built By
 
@@ -174,6 +176,3 @@ Full-stack Web3 developer focused on Stacks, Clarity, and decentralized applicat
 - [Stacks Foundation](https://www.stacks.co/) – The Stacks ecosystem
 - [Hiro Systems](https://www.hiro.so/) – Developer tools & SDK
 - [Clarity Community](https://discord.gg/stacks) – Amazing developer community
-
----
-
