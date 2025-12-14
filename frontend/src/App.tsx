@@ -6,6 +6,7 @@ import {
 } from "@stacks/transactions";
 import { STACKS_MAINNET } from "@stacks/network";
 import { userSession } from "./stacks";
+import "./App.css";
 
 const network = STACKS_MAINNET;
 
