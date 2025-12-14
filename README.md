@@ -56,6 +56,8 @@ hiro-structure/
 ├── README.md
 └── .gitignore
 
+```text
+
 # Counter Contract 
 
 - Contract name: counter-contract-v1
