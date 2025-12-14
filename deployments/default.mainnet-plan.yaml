@@ -2,7 +2,18 @@
 id: 0
 name: Mainnet deployment
 network: mainnet
-stacks-node: "https://stacks-node-api.mainnet.stacks.co"
-bitcoin-node: "http://blockstack:blockstacksystem@bitcoin.blockstack.com:8332"
+stacks-node: "https://api.mainnet.hiro.so"
+bitcoin-node: "http://blockstack:blockstacksystem@bitcoind.mainnet.stacks.co:8332"
 plan:
-  batches: []
+  batches:
+    - id: 0
+      transactions:
+        - contract-publish:
+            contract-name: counter-contract-v1
+            expected-sender: SP1JC5M9MYCNTJG3TV0HTBEYRQDCR9119RH7SB0BA
+            cost: 113750
+            path: contracts/counter-contract.clar
+            anchor-block-only: true
+            clarity-version: 4
+      epoch: "2.1"
+
