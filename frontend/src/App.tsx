@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { connect, openContractCall } from "@stacks/connect";
 import {
   fetchCallReadOnlyFunction,
@@ -18,6 +18,29 @@ function App() {
   const [connected, setConnected] = useState(
     userSession.isUserSignedIn()
   );
+const [chainhookStatus, setChainhookStatus] = useState<{
+  enabled: boolean;
+  status: string;
+  lastBlock?: number;
+  occurrences?: number;
+} | null>(null);
+
+useEffect(() => {
+  const fetchChainhookStatus = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/api/chainhook-status");
+      const data = await res.json();
+      setChainhookStatus(data);
+    } catch (err) {
+      console.error("Failed to fetch chainhook status");
+    }
+  };
+
+  fetchChainhookStatus();
+  const interval = setInterval(fetchChainhookStatus, 5000);
+
+  return () => clearInterval(interval);
+}, []);
 
   // -------------------------
   // Connect wallet
@@ -62,7 +85,41 @@ const connectWallet = async () => {
   };
 
   return (
+
+
+    
+
     <div className="app">
+    {chainhookStatus && (
+  <div
+    style={{
+      marginTop: 12,
+      padding: 12,
+      borderRadius: 10,
+      background: "#0b1220",
+      color: "#e5e7eb",
+      fontSize: 14,
+    }}
+  >
+    <div>
+      🔗 Chainhook:{" "}
+      <strong
+        style={{
+          color: chainhookStatus.enabled ? "#22c55e" : "#ef4444",
+        }}
+      >
+        {chainhookStatus.status}
+      </strong>
+    </div>
+
+    <div style={{ opacity: 0.8, marginTop: 4 }}>
+      Enabled: {chainhookStatus.enabled ? "Yes" : "No"} • Last block:{" "}
+      {chainhookStatus.lastBlock ?? "--"} • Events:{" "}
+      {chainhookStatus.occurrences ?? 0}
+    </div>
+  </div>
+)}
+
       <div className="card" role="main" aria-labelledby="app-title">
         <div className="card-header">
           <div>
